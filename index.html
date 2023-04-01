@@ -76,12 +76,12 @@
 
     function getEnvironment() {
       document.getElementById("os").append(liff.getOS())
-      document.getElementById("lanuage").append(liff.getLanguage())
+      document.getElementById("language").append(liff.getLanguage())
       document.getElementById("version").append(liff.getVersion())
       document.getElementById("accessToken").append(liff.getAccessToken())
       document.getElementById("isInClient").append(liff.isInClient())
-      if (liff.isInClient()) { //เช็คว่าเปิดใน App LINE หรือเปล่า
-        document.getElementById("btnLogOut").style.display = "none" //ถ้าใช่ปิดปุ่มล็อคเอ้าท์ออก
+      if (liff.isInClient()) {
+        document.getElementById("btnLogOut").style.display = "none"
       } else {
         document.getElementById("btnMsg").style.display = "none"
         document.getElementById("btnScanCode").style.display = "none"
