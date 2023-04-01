@@ -72,6 +72,12 @@
     }
 
     async function getUserProfile() {
+      const profile = await liff.getProfile()
+      document.getElementById("pictureUrl").src = profile.pictureUrl
+      document.getElementById("userId").append(profile.userId)
+      document.getElementById("statusMessage").append(profile.statusMessage)
+      document.getElementById("displayName").append(profile.displayName)
+      document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
     }
 
     function getEnvironment() {
@@ -80,8 +86,8 @@
       document.getElementById("version").append(liff.getVersion())
       document.getElementById("accessToken").append(liff.getAccessToken())
       document.getElementById("isInClient").append(liff.isInClient())
-      if (liff.isInClient()) {
-        document.getElementById("btnLogOut").style.display = "none"
+      if (liff.isInClient()) { //เช็คว่าเปิดใน App LINE หรือเปล่า
+        document.getElementById("btnLogOut").style.display = "none" // ถ้าเปิดใน LINE ให้เอาปุ่ม log out ออก
       } else {
         document.getElementById("btnMsg").style.display = "none"
         document.getElementById("btnScanCode").style.display = "none"
@@ -92,7 +98,7 @@
     async function main() {
       await liff.init({ liffId: "1660813788-kG45zoXb" })
       getEnvironment()
-      // getUserProfile()
+      getUserProfile()
       // getContext()
       // getFriendship()
       // createUniversalLink()
