@@ -32,7 +32,7 @@
   <button id="btnMsg" onclick="sendMsg()">Send Message</button>
   <button id="btnShare" onclick="shareMsg()">Share Target Picker</button>
   <button onclick="openWindow()">Open Window</button>
-  <button id="btnScanCode">Scan Code</button>
+  <button id="btnScanCode" onclick="scanCode()">Scan Code</button>
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <button id="btnClose" onclick="closed()">Close</button>
 
@@ -66,7 +66,7 @@
     }
 
     async function scanCode() {
-      const result = await liff.scanCode()
+      const result = await liff.scanCodeV2()
       document.getElementById("scanCode").append(result.value)
     }
 
@@ -148,7 +148,6 @@
         }
       })
       await liff.init({ liffId: "1660813788-kG45zoXb" })
-      document.getElementById("btnScanCode").addEventListener("click", scanCode);
     }
     main()
   </script>
